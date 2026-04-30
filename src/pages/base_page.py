@@ -1,6 +1,6 @@
 import allure
 from selenium.webdriver.common.by import By
-from pages.components.sign_up_modal import SignUpModal
+from components.sign_up_modal import SignUpModal
 
 class BasePage:
     sign_up_button_locator = (By.CSS_SELECTOR, ".header_navigation-menu-right-list > .header_sign-up-link")

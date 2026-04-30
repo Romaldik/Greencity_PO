@@ -1,6 +1,6 @@
 import allure
 from selenium.webdriver.common.by import By
-from pages.components.base_component import BaseComponent
+from components.base_component import BaseComponent
 
 class SignUpModal(BaseComponent):
     email_locator = (By.ID, "email")

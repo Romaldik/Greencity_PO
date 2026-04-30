@@ -1,6 +1,6 @@
 import allure
 from selenium.webdriver.common.by import By
-from pages.components.base_component import BaseComponent
+from components.base_component import BaseComponent
 
 
 class EventCardComponent(BaseComponent):

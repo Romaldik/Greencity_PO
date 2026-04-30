@@ -3,7 +3,7 @@ import re
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from pages.base_page import BasePage
-from pages.components.event_card_component import EventCardComponent
+from components.event_card_component import EventCardComponent
 
 class EventsPage(BasePage):
     cards_locator = (By.XPATH, "//mat-card")
