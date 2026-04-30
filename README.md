@@ -7,8 +7,9 @@
 * **Мова:** Python 3.12.0
 * **Бібліотека:** Selenium WebDriver
 * **Браузер:** Google Chrome 
-* **Архітектура:** Page Object Model (POM)
-* **Тест-фреймворк:** Unittest
+* **Архітектура:** Page Object Model (POM) + Component-based approach
+* **Тест-фреймворк:** pytest
+* **Звітність:** Allure report 
 * **Середовище:** venv (Virtual Environment)
 ---
 ## Методологія та архітектура
@@ -42,6 +43,13 @@
 * **Explicit Waits (WebDriverWait):** Використовуються для перевірки видимості модальних вікон та станів кнопок перед взаємодією.
 * **Відмова від sleep():** Код оптимізовано для роботи без жорстких пауз, що пришвидшує виконання тестів.
 ---
+
+## Звітність (Allure Report)
+У проекті інтегровано Allure Framework для деталізації результатів тестування:
+* **Анотації:** Використано `@allure.feature`, `@allure.story` та `@allure.step` для структуризації звіту.
+* **Аналіз помилок:** У разі падіння тесту Allure дозволяє відстежити конкретний крок, на якому стався збій, та переглянути логи WebDriver.
+* **Генерація:** Звіт генерується динамічно з JSON-файлів, що збираються в папку `allure-results`.
+---
 ##  Запуск проекту
 
 1. **Активація віртуального середовища:**
@@ -54,19 +62,27 @@
     ```
 3. **Запуск Тестів**
     ```powershell 
-    python src/test.py
+    pytest --alluredir=allure-results
+    ```
+4. **Отримання результатів Allure**
+    ```powershell
+    allure serve allure-results
     ```
 ---
 ## Структура проекту
-```
-greencity_POM/
-├── pages/
-│   ├── components/            
-│   │   ├── base_component.py
-│   │   ├── event_card_component.py
-│   │   └── sign_up_modal.py
-│   ├── base_page.py           
-│   └── events_page.py        
-├── requirements.txt           
-└── test.py                
+```text
+    greencity_POM/
+    ├── src/
+    │   ├── pages/               
+    │   │   ├── base_page.py
+    │   │   └── events_page.py
+    │   └── components/          
+    │       ├── base_component.py
+    │       ├── event_card_component.py
+    │       └── sign_up_modal.py
+    ├── test_greencity.py        
+    ├── conftest.py              
+    ├── pytest.ini               
+    ├── .gitignore               
+    └── requirements.txt                
 ```
