@@ -11,7 +11,7 @@ class TestGreenCity(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         self.driver = webdriver.Chrome(options=options)
-        self.driver.implicitly_wait(10) # Замінює твої sleep()
+        self.driver.implicitly_wait(10)
         self.driver.maximize_window()
         self.driver.get(self.BASE_URL) 
 
@@ -23,7 +23,7 @@ class TestGreenCity(unittest.TestCase):
         events_page = EventsPage(self.driver)
         
         events_page.open_filter_dropdown()
-        # Клікаємо на ту саму категорію, що й у твоєму коді
+        
         events_page.select_filter_option('mat-option-4') 
         
         cards = events_page.get_cards()
